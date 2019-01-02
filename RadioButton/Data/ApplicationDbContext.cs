@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RadioButton.Models;
 
 namespace RadioButton.Data
 {
@@ -12,5 +13,6 @@ namespace RadioButton.Data
             : base(options)
         {
         }
+        public DbSet<ContactModel> ContactModels { get; set; }
     }
 }

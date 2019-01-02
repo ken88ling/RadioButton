@@ -1,0 +1,52 @@
+﻿@model ContactModel
+
+@{
+  ViewBag.Title = "Contact Form";
+}
+
+<h2>Contact - Radio</h2>
+
+<form asp-action="ContactForm" method="post">
+  @Html.AntiForgeryToken()
+
+  <div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+      <label asp-for="Name" class="control-label col-md-2"></label>
+      <div class="col-md-10">
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label asp-for="Gender" class="control-label col-md-2"></label>
+      <div class="col-md-10">
+        Male
+        <input type="radio" asp-for="Gender" value="Male" />
+        Female
+        <input type="radio" asp-for="Gender" value="Female" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label asp-for="PhoneNumber" class="control-label col-md-2"></label>
+      <div class="col-md-10">
+        <input asp-for="PhoneNumber" type="number" class="form-control"/>
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Create" class="btn btn-primary" />
+      </div>
+    </div>
+  </div>
+
+</form>
+
+<div>
+  @Html.ActionLink("Back to List", "Index")
+</div>
